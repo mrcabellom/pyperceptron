@@ -1,4 +1,4 @@
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from algoritms.perceptron import Perceptron
 import pandas as pd
 
@@ -13,7 +13,7 @@ def main():
     y_train = train.iloc[:, -1].values
     perceptron.fit(x_train, y_train)
     classification = perceptron.predict(test.iloc[:, :4].values)
-    test.loc[:,'irisclassification'] = classification
+    test = test.assign(irisclassification=classification)
     print test
 
 if __name__ == "__main__":

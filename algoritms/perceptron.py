@@ -18,8 +18,8 @@ class Perceptron(object):
             self.errors += int(update != 0.0)
         return self
 
-    def net_input(self, x):
+    def __net_input(self, x):
         return np.dot(x, self.weights) + self.bias
 
     def predict(self, x):
-        return np.where(self.net_input(x) > 0 , 1, 0)
+        return np.where(self.__net_input(x) > 0 , 1, 0)
